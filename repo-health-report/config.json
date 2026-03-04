@@ -1,0 +1,7 @@
+{
+  "repositories": [
+    { "owner": "YOUR_USERNAME", "repo": "ci-pipeline-starter" },
+    { "owner": "YOUR_USERNAME", "repo": "python-automation-scripts" },
+    { "owner": "YOUR_USERNAME", "repo": "repo-health-report" }
+  ]
+}
