@@ -1,14 +1,13 @@
 """Tests for scripts/csv_processor.py"""
 
-import json
-import os
-import tempfile
-import pytest
-
 import sys
+import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "scripts"))
 
-from csv_processor import load_csv, summarize, to_markdown, main
+import json  # noqa: E402
+import pytest  # noqa: E402
+
+from csv_processor import load_csv, summarize, to_markdown, main  # noqa: E402
 
 
 SAMPLE_CSV_CONTENT = """name,age,city

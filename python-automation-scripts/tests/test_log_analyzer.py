@@ -1,14 +1,12 @@
 """Tests for scripts/log_analyzer.py"""
 
-import json
-import os
 import sys
-
-import pytest
-
+import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "scripts"))
 
-from log_analyzer import analyze_log, to_markdown, to_json, main
+import json  # noqa: E402
+
+from log_analyzer import analyze_log, to_markdown, to_json, main  # noqa: E402
 
 
 SAMPLE_LOG = """

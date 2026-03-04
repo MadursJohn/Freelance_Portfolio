@@ -163,7 +163,10 @@ def main(argv: list[str] | None = None) -> int:
 
     summary = analyze_log(text, min_level=args.level)
 
-    output = to_markdown(summary, source=args.log_file) if args.format == "markdown" else to_json(summary)
+    if args.format == "markdown":
+        output = to_markdown(summary, source=args.log_file)
+    else:
+        output = to_json(summary)
 
     if args.output:
         Path(args.output).write_text(output, encoding="utf-8")
