@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -44,11 +45,24 @@ def main(argv: list[str] | None = None) -> int:
         print("ERROR: No repositories listed in config.", file=sys.stderr)
         return 1
 
+    # Owner resolution priority:
+    #   1. per-entry "owner" field
+    #   2. GITHUB_REPOSITORY_OWNER env var  (set automatically by GitHub Actions)
+    #   3. top-level "default_owner" in config  (for local runs)
+    env_owner = os.environ.get("GITHUB_REPOSITORY_OWNER", "")
+    default_owner = config.get("default_owner", "")
+
     client = GitHubClient(token=args.token)
     all_metrics = []
 
     for repo_spec in repos:
-        owner, name = repo_spec["owner"], repo_spec["repo"]
+        name = repo_spec["repo"]
+        owner = repo_spec.get("owner") or env_owner or default_owner
+        if not owner:
+            print(f"  ERROR: No owner resolved for repo '{name}'. "
+                  "Set GITHUB_REPOSITORY_OWNER or add 'default_owner' to config.",
+                  file=sys.stderr)
+            continue
         print(f"  Fetching {owner}/{name} ...", file=sys.stderr)
         try:
             repo_data = client.get_repo(owner, name)
