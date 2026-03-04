@@ -1,7 +1,7 @@
 """Tests for build_report.parser"""
 
 import pytest
-from build_report.parser import parse_log, BuildResult, StepResult
+from build_report.parser import parse_log, BuildResult
 
 
 SAMPLE_LOG = """

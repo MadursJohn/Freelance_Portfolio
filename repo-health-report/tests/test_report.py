@@ -2,12 +2,11 @@
 
 import os
 import sys
-
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 
-from datetime import datetime, timezone, timedelta
-from metrics import RepoMetrics, CommitSummary
-from report import to_markdown, to_html
+from datetime import datetime, timezone, timedelta  # noqa: E402
+from metrics import RepoMetrics, CommitSummary  # noqa: E402
+from report import to_markdown, to_html  # noqa: E402
 
 
 def make_metrics(**overrides) -> RepoMetrics:
@@ -26,7 +25,10 @@ def make_metrics(**overrides) -> RepoMetrics:
         last_pushed_at=recent,
         created_at="2023-01-01T00:00:00Z",
         recent_commits=[
-            CommitSummary(sha="abc1234", message="initial commit", author="Alice", date="2024-01-01T00:00:00Z")
+            CommitSummary(
+                sha="abc1234", message="initial commit",
+                author="Alice", date="2024-01-01T00:00:00Z"
+            )
         ],
     )
     defaults.update(overrides)

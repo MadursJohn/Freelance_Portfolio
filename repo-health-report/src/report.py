@@ -60,8 +60,11 @@ def to_markdown(metrics_list: List[RepoMetrics]) -> str:
             f"- **Main branch:** `{m.default_branch}`",
             f"- **Open issues:** {m.open_issues_count}  "
             f"|  **Open PRs:** {m.open_prs_count}",
-            f"- **Last push:** {m.last_pushed_at} "
-            f"({m.days_since_push}d ago)" if m.days_since_push is not None else f"- **Last push:** {m.last_pushed_at}",
+            (
+                f"- **Last push:** {m.last_pushed_at} ({m.days_since_push}d ago)"
+                if m.days_since_push is not None
+                else f"- **Last push:** {m.last_pushed_at}"
+            ),
             "",
         ]
 

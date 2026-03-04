@@ -10,7 +10,7 @@ from __future__ import annotations
 import json
 from typing import Callable
 
-from .parser import BuildResult, StepResult
+from .parser import BuildResult
 
 # ---------------------------------------------------------------------------
 # Helpers

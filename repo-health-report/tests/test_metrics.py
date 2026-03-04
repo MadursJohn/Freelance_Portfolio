@@ -2,11 +2,9 @@
 
 import os
 import sys
-import pytest
-
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 
-from metrics import build_metrics, RepoMetrics
+from metrics import build_metrics, RepoMetrics  # noqa: E402
 
 
 REPO_DATA = {
