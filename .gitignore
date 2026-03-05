@@ -1,6 +1,7 @@
 # private strategy & instructions — local only
 GITHUB_PUSH_INSTRUCTIONS.md
 JOB_STRATEGY.md
+**/docs/upwork-listing.md
 
 __pycache__/
 *.py[cod]
