@@ -1,4 +1,4 @@
-# Freelance Portfolio — João Madureira
+# Basics Portfolio — João Madureira
 
 Automation & Integration Engineer · Python · CI/CD · GitHub Actions
 
